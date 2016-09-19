@@ -11,7 +11,7 @@
 #******************************************************************************#
 
 
-DEBUG=no
+DEBUG=yes
 CC=gcc
 
 ifeq ($(DEBUG), yes)
@@ -35,7 +35,7 @@ MKDIR = mkdir
 
 C_SRC = main.c
 
-UC_SRC = main.c
+UC_SRC = main_test.c
 
 ifeq ($(DEBUG), yes)
 	MC_SRC = $(UC_SRC)
