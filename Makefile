@@ -35,11 +35,19 @@ MKDIR = mkdir
 
 C_SRC = main.c
 
-VPATH= src
+UC_SRC = main.c
+
+ifeq ($(DEBUG), yes)
+	MC_SRC = $(UC_SRC)
+else
+	MC_SRC = $(C_SRC)
+endif
+
+VPATH= src:unit_test/src
 # VPATH= src/str:src/put:src/int:src/mem:src/char:src/file:src/lst
 
 
-OBJS= $(C_SRC:%.c=$(O_DIR)/%.o)
+OBJS= $(MC_SRC:%.c=$(O_DIR)/%.o)
 
 
 
