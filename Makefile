@@ -29,7 +29,7 @@ LIB_UNIT_TEST= test_project/unit_test/lib_unit_test.a
 
 LIB=
 
-I_DIR= -I inc/ -I./libft/inc -I./test_project/unit_test/inc
+I_DIR= -I inc/ -I./libft/inc -I./test_project/unit_test/inc -I./test_project/test_file/inc
 
 O_DIR= obj
 
