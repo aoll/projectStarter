@@ -25,14 +25,16 @@ cd $projecName;
 #     https://api.github.com/user/repos
 
 
-mkdir src;
-cd src;
-cp ../../projectStarter/main.c .;
-cd ..;
-mkdir inc;
-cd inc;
-cp ../../projectStarter/project.h .;
-cd ..;
+# mkdir src;
+# cd src;
+# cp ../../projectStarter/main.c .;
+# cd ..;
+# mkdir inc;
+# cd inc;
+# cp ../../projectStarter/project.h .;
+# cd ..;
+cp -r ../projectStarter/inc .;
+cp -r ../projectStarter/src .;
 git clone https://github.com/aoll/libft.git;
 mkdir test_project;
 cd test_project;

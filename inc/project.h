@@ -12,4 +12,6 @@
 
 # include "libft.h"
 
+void  ft_start(void);
+
 # endif

@@ -40,6 +40,8 @@ MKDIR = mkdir
 
 C_SRC = main.c
 
+ST_SRC= ft_start.c
+
 UC_SRC = main_test.c
 
 ifeq ($(DEBUG), yes)
@@ -53,7 +55,7 @@ VPATH= src:test_project/test_file/src
 # VPATH= src/str:src/put:src/int:src/mem:src/char:src/file:src/lst
 
 
-OBJS= $(MC_SRC:%.c=$(O_DIR)/%.o)
+OBJS= $(MC_SRC:%.c=$(O_DIR)/%.o) $(ST_SRC:%.c=$(O_DIR)/%.o)
 
 
 
