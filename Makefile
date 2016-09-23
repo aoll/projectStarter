@@ -25,11 +25,11 @@ NAME =project.exe
 
 LIBFT =libft/libft.a
 
-LIB_UNIT_TEST= unit_test/lib_unit_test.a
+LIB_UNIT_TEST= test_project/unit_test/lib_unit_test.a
 
 LIB=
 
-I_DIR= -I inc/ -I./libft/inc -I./unit_test/inc
+I_DIR= -I inc/ -I./libft/inc -I./test_project/unit_test/inc
 
 O_DIR= obj
 
@@ -45,7 +45,7 @@ else
 	MC_SRC = $(C_SRC)
 endif
 
-VPATH= src:unit_test/src
+VPATH= src:test_project/unit_test/src
 # VPATH= src/str:src/put:src/int:src/mem:src/char:src/file:src/lst
 
 
@@ -57,7 +57,7 @@ OBJS= $(MC_SRC:%.c=$(O_DIR)/%.o)
 
 all :
 	make -C libft
-	make -C unit_test
+	make -C test_project/unit_test
 	make -j $(NAME)
 
 ifeq ($(DEBUG),yes)
@@ -67,7 +67,7 @@ else
 endif
 
 $(NAME):$(OBJS) $(LIBFT) $(LIB_UNIT_TEST)
-				$(CC) $(CFLAGS) $(I_DIR) $^ -o $@ $(LIB) $(LIB_UNIT_TEST) 
+				$(CC) $(CFLAGS) $(I_DIR) $^ -o $@ $(LIB) $(LIB_UNIT_TEST)
 
 
 $(O_DIR)/%.o: %.c
