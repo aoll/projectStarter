@@ -15,7 +15,7 @@ DEBUG=yes
 CC=gcc
 
 ifeq ($(DEBUG), yes)
-				CFLAGS= -Wall -Wextra -g -ansi -pedantic
+				CFLAGS= -Wall -Wextra # -g -ansi -pedantic
 else
 		CFLAGS= -Wall -Wextra -Werror
 endif
@@ -25,7 +25,10 @@ NAME =project.exe
 
 LIBFT =libft/libft.a
 
-LIB_UNIT_TEST= test_project/unit_test/lib_unit_test.a
+LIB_TEST_PROJECT= test_project/test_file/lib_test_project.a
+
+LIB_UNIT_TEST=test_project/unit_test/lib_unit_test.a
+
 
 LIB=
 
@@ -45,6 +48,7 @@ else
 	MC_SRC = $(C_SRC)
 endif
 
+# VPATH= src
 VPATH= src:test_project/test_file/src
 # VPATH= src/str:src/put:src/int:src/mem:src/char:src/file:src/lst
 
@@ -57,7 +61,7 @@ OBJS= $(MC_SRC:%.c=$(O_DIR)/%.o)
 
 all :
 	make -C libft
-	make -C test_project/unit_test
+	make -C test_project/test_file
 	make -j $(NAME)
 
 ifeq ($(DEBUG),yes)
@@ -66,8 +70,8 @@ else
 				@echo "Generation mode release"
 endif
 
-$(NAME):$(OBJS) $(LIBFT) $(LIB_UNIT_TEST)
-				$(CC) $(CFLAGS) $(I_DIR) $^ -o $@ $(LIB) $(LIB_UNIT_TEST)
+$(NAME):$(OBJS) $(LIBFT) $(LIB_TEST_PROJECT) $(LIB_UNIT_TEST)
+				$(CC) $(CFLAGS) $(I_DIR) $^ -o $@ $(LIB)
 
 
 $(O_DIR)/%.o: %.c
@@ -79,8 +83,14 @@ $(O_DIR):
 				$(MKDIR) $(O_DIR)
 clean :
 		rm -rf $(O_DIR)
+		make clean -C libft
+		make clean -C test_project/test_file
+		make clean -C test_project/unit_test
 
 fclean : clean
 		@rm -rf $(NAME)
+		make fclean -C libft
+		make fclean -C test_project/test_file
+		make fclean -C test_project/unit_test
 
 re : fclean all
