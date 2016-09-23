@@ -45,7 +45,7 @@ else
 	MC_SRC = $(C_SRC)
 endif
 
-VPATH= src:test_project/unit_test/src
+VPATH= src:test_project/test_file/src
 # VPATH= src/str:src/put:src/int:src/mem:src/char:src/file:src/lst
 
 
