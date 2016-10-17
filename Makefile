@@ -72,8 +72,8 @@ else
 				@echo "Generation mode release"
 endif
 
-$(NAME):$(OBJS) $(LIBFT) $(LIB_TEST_PROJECT) $(LIB_UNIT_TEST)
-				$(CC) $(CFLAGS) $(I_DIR) $^ -o $@ $(LIB)
+$(NAME):$(OBJS)
+				$(CC)  $(CFLAGS) $(I_DIR) $^ $(LIB_TEST_PROJECT) $(LIB_UNIT_TEST) $(LIBFT) -o $@ $(LIB)
 
 
 $(O_DIR)/%.o: %.c
